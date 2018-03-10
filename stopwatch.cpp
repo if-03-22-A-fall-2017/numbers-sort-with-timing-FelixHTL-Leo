@@ -10,3 +10,25 @@
  * <your description here>
  *-----------------------------------------------------------------------------
 */
+#include "stopwatch.h"
+#include <stdio.h>
+#include <time.h>
+clock_t start,end;
+void start_stopwatch()
+{
+ start = clock();
+ end = 0;
+}
+
+double elapsed_time()
+{
+  if (end == 0) {
+    stop_stopwatch();
+  }
+return (double)(end-start)/ CLOCKS_PER_SEC;
+}
+
+void stop_stopwatch()
+{
+   end = clock();
+}
